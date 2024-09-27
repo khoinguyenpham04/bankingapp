@@ -1,49 +1,46 @@
 "use client"
 
 import Link from "next/link"
-
 import Image from "next/image"
 import { sidebarLinks } from "@/constants"
 import { cn } from "@/lib/utils"
 import { usePathname } from "next/navigation"
 
-const Sidebar = ( {user }: SiderbarProps) => {
+const Sidebar = ({ user }: SiderbarProps) => {
   const pathname = usePathname();
 
   return (
     <section className="sidebar">
       <nav className="flex flex-col gap-4">
-        <Link href="/" className="mb-11 cursor-pointer items-center gap-2">
-        <Image
-        src="/icons/logo.svg"
-        width={40}
-        height={40}
-        alt="Horizon Logo"
-        className="size-[40px]"
-        max-xl="size-20"
-
-        />
-        <h1 className="sidebar-logo">Horizon</h1>
+        <Link href="/" className="mb-11 cursor-pointer flex items-center gap-2">
+          <div className="flex items-center gap-2">
+            <Image
+              src="/icons/logo.svg"
+              width={34}
+              height={34}
+              alt="Horizon Logo"
+              className="size-[24px]"
+            />
+            <h1 className="sidebar-logo">Horizon</h1>
+          </div>
         </Link>
 
-        {sidebarLinks.map((item)=> {
-          const isActive = pathname === item.route || pathname.startsWith(`${item.route}/`)
-
+        {sidebarLinks.map((item) => {
+          const isActive = pathname === item.route || pathname.startsWith(`${item.route}/`);
 
           return (
-            <Link href={item.route} key ={item.label} className= {cn('sidebar-link', {'bg-bank-gradient': isActive})}> 
+            <Link href={item.route} key={item.label} className={cn('sidebar-link', { 'bg-bank-gradient': isActive })}>
               <div className="relative size-6">
-                <Image 
-                  src = {item.imgURL}
+                <Image
+                  src={item.imgURL}
                   alt={item.label}
                   fill
-
                   className={cn({
                     'brightness-[3] invert-0': isActive
                   })}
                 />
               </div>
-              <p className={cn('sidebar-label',{
+              <p className={cn('sidebar-label', {
                 '!text-white': isActive
               })}>
                 {item.label}
