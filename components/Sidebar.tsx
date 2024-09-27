@@ -19,7 +19,7 @@ const Sidebar = ({ user }: SiderbarProps) => {
               width={34}
               height={34}
               alt="Horizon Logo"
-              className="size-[24px]"
+              className="size-[35px]"
             />
             <h1 className="sidebar-logo">Horizon</h1>
           </div>
