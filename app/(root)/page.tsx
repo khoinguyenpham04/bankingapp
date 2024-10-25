@@ -20,7 +20,7 @@ const DashBoard = () => {
             <TotalBalanceBox
               accounts={[]}
               totalBanks={1}
-              totalCurrentBalance={345.49}
+              totalCurrentBalance={1000000}
             />
         </header>
 
