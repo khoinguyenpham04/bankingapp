@@ -24,6 +24,7 @@ import { authFormSchema } from '@/lib/utils';
 import { Sign } from 'crypto';
 import SignUp from '@/app/(auth)/sign-up/page';
 import { useRouter } from 'next/navigation';
+import { signIn, signUp } from '@/lib/actions/user.actions';
 
 
 const AuthForm = ({ type }: { type: string}) => {
@@ -50,13 +51,13 @@ const AuthForm = ({ type }: { type: string}) => {
             //sign up with appwrite and create plaid token
 
             if( type === 'sign-up') {
-                // const newUser = await signUp(data);
+                const newUser = await signUp(data);
 
-                // setUser(newUser);
+                setUser(newUser);
             }
 
             if( type === 'sign-in') {
-            //     const response = await SignIn({
+            //     const response = await signIn({
             //         email: data.email,
             //         password: data.password
             //     })
